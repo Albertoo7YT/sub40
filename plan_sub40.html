@@ -1,0 +1,1474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sub 40 · 25 OCT 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@400;500;700&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;1,9..144,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg-2: #131313;
+    --ink: #f4f1ea;
+    --ink-dim: #8a857c;
+    --line: #262626;
+    --accent: #ff4d1a;
+    --accent-2: #f4d03f;
+    --easy: #4a8c5e;
+    --quality: #ff4d1a;
+    --long: #c97f3a;
+    --strength: #6b5b95;
+    --rest: #3a3a3a;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Fraunces', Georgia, serif;
+    font-size: 17px;
+    line-height: 1.55;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(ellipse at top left, rgba(255, 77, 26, 0.08), transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(244, 208, 63, 0.04), transparent 50%);
+  }
+
+  /* Grain overlay */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.4;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.06 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px;
+    position: relative;
+    z-index: 2;
+  }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 32px 0 48px;
+    border-bottom: 1px solid var(--line);
+    position: relative;
+  }
+
+  .top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  .top-bar .dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: var(--accent);
+    border-radius: 50%;
+    margin-right: 8px;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(1.3); }
+  }
+
+  .hero-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 80px 0 40px;
+  }
+
+  .hero-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 24px;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(80px, 18vw, 280px);
+    line-height: 0.85;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .hero-title .accent {
+    color: var(--accent);
+    font-style: italic;
+    font-family: 'Fraunces', serif;
+    font-weight: 800;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(20px, 2.5vw, 32px);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink-dim);
+    max-width: 720px;
+    margin-bottom: 56px;
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .stat {
+    background: var(--bg);
+    padding: 24px 20px;
+  }
+
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 8px;
+  }
+
+  .stat-value {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    letter-spacing: 0.02em;
+  }
+
+  .stat-value .small {
+    font-size: 18px;
+    color: var(--ink-dim);
+  }
+
+  /* COUNTDOWN */
+  .countdown-strip {
+    background: var(--accent);
+    color: #0a0a0a;
+    padding: 16px 0;
+    overflow: hidden;
+    border-top: 1px solid var(--accent);
+    border-bottom: 1px solid var(--accent);
+    position: relative;
+    z-index: 2;
+  }
+
+  .marquee {
+    display: flex;
+    white-space: nowrap;
+    animation: scroll 40s linear infinite;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    letter-spacing: 0.05em;
+  }
+
+  .marquee span {
+    padding: 0 32px;
+  }
+
+  .marquee span::after {
+    content: '✦';
+    margin-left: 64px;
+    color: rgba(0,0,0,0.4);
+  }
+
+  @keyframes scroll {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 100px 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .section-header {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    gap: 32px;
+    align-items: end;
+    margin-bottom: 64px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--ink-dim);
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(48px, 7vw, 96px);
+    line-height: 0.9;
+    letter-spacing: 0.01em;
+  }
+
+  .section-title em {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--accent);
+    font-weight: 600;
+  }
+
+  .section-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+
+  /* PHASES */
+  .phases {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--line);
+  }
+
+  .phase {
+    padding: 32px 28px;
+    border-right: 1px solid var(--line);
+    position: relative;
+    transition: background 0.3s;
+  }
+
+  .phase:last-child { border-right: none; }
+
+  .phase:hover {
+    background: var(--bg-2);
+  }
+
+  .phase-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.25em;
+    color: var(--ink-dim);
+    margin-bottom: 12px;
+  }
+
+  .phase-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 32px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .phase-dates {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .phase-desc {
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--ink);
+    margin-bottom: 16px;
+  }
+
+  .phase-focus {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    border-top: 1px dashed var(--line);
+    padding-top: 16px;
+  }
+
+  /* WEEK CARDS */
+  .week-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .week {
+    border: 1px solid var(--line);
+    background: var(--bg);
+    transition: border-color 0.3s;
+  }
+
+  .week:hover {
+    border-color: var(--accent);
+  }
+
+  .week-header {
+    display: grid;
+    grid-template-columns: 80px 1fr auto auto;
+    gap: 24px;
+    padding: 20px 28px;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.3s;
+  }
+
+  .week.open .week-header {
+    border-bottom-color: var(--line);
+  }
+
+  .week-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    line-height: 1;
+    color: var(--accent);
+  }
+
+  .week-num .label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    color: var(--ink-dim);
+    letter-spacing: 0.2em;
+    margin-bottom: 4px;
+  }
+
+  .week-info h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .week-info p {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+
+  .week-volume {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 24px;
+    color: var(--ink);
+    text-align: right;
+  }
+
+  .week-volume .unit {
+    font-size: 12px;
+    color: var(--ink-dim);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .week-toggle {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    color: var(--ink);
+  }
+
+  .week.open .week-toggle {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+    transform: rotate(180deg);
+  }
+
+  .week-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s ease;
+  }
+
+  .week.open .week-body {
+    max-height: 1200px;
+  }
+
+  .week-content {
+    padding: 8px 28px 28px;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+  }
+
+  .day {
+    background: var(--bg-2);
+    padding: 16px 12px;
+    border-radius: 4px;
+    min-height: 160px;
+    border-top: 3px solid var(--rest);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+  }
+
+  .day:hover {
+    transform: translateY(-2px);
+  }
+
+  .day.easy { border-top-color: var(--easy); }
+  .day.quality { border-top-color: var(--quality); }
+  .day.long { border-top-color: var(--long); }
+  .day.strength { border-top-color: var(--strength); }
+  .day.rest { border-top-color: var(--rest); opacity: 0.55; }
+
+  .day-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--ink-dim);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+
+  .day-type {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 14px;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .day-type.easy { color: var(--easy); }
+  .day-type.quality { color: var(--quality); }
+  .day-type.long { color: var(--long); }
+  .day-type.strength { color: var(--strength); }
+  .day-type.rest { color: var(--ink-dim); }
+
+  .day-desc {
+    font-size: 13px;
+    line-height: 1.4;
+    color: var(--ink);
+    flex: 1;
+  }
+
+  .day-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--ink-dim);
+    margin-top: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--line);
+  }
+
+  /* LEGEND */
+  .legend {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+    margin-bottom: 32px;
+    padding: 16px 24px;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-dim);
+  }
+
+  .legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 2px;
+  }
+
+  /* RHYTHMS REFERENCE */
+  .rhythms {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+
+  .rhythm-card {
+    background: var(--bg);
+    padding: 24px 20px;
+  }
+
+  .rhythm-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+    margin-bottom: 12px;
+  }
+
+  .rhythm-pace {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 42px;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+
+  .rhythm-pace .unit {
+    font-size: 14px;
+    color: var(--ink-dim);
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .rhythm-desc {
+    font-size: 13px;
+    color: var(--ink-dim);
+    font-style: italic;
+    line-height: 1.4;
+  }
+
+  /* PRINCIPLES */
+  .principles {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .principle {
+    padding: 32px;
+    border: 1px solid var(--line);
+    background: linear-gradient(135deg, var(--bg) 0%, var(--bg-2) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .principle::before {
+    content: attr(data-num);
+    position: absolute;
+    top: -20px;
+    right: -10px;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 180px;
+    color: var(--bg-2);
+    z-index: 0;
+    line-height: 1;
+  }
+
+  .principle > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .principle h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28px;
+    margin-bottom: 16px;
+    letter-spacing: 0.02em;
+  }
+
+  .principle p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink-dim);
+  }
+
+  .principle p strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 64px 0 48px;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+
+  footer .quote {
+    font-family: 'Fraunces', serif;
+    font-size: 32px;
+    font-style: italic;
+    font-weight: 400;
+    color: var(--ink);
+    max-width: 720px;
+    margin: 0 auto 32px;
+    line-height: 1.3;
+  }
+
+  footer .quote::before,
+  footer .quote::after {
+    color: var(--accent);
+    font-weight: 800;
+  }
+  footer .quote::before { content: '« '; }
+  footer .quote::after { content: ' »'; }
+
+  footer .meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-dim);
+  }
+
+  /* WEEK STATES */
+  .week-badge {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    margin-left: 8px;
+    vertical-align: middle;
+    border-radius: 2px;
+    font-weight: 700;
+  }
+
+  .week-badge.current {
+    background: var(--accent);
+    color: var(--bg);
+  }
+
+  .week-badge.past {
+    background: transparent;
+    color: var(--ink-dim);
+    border: 1px solid var(--line);
+  }
+
+  .week.current {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 1px var(--accent), 0 0 40px rgba(255, 77, 26, 0.15);
+    position: relative;
+  }
+
+  .week.current::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: var(--accent);
+  }
+
+  .week.past {
+    opacity: 0.55;
+  }
+
+  .week.past:hover {
+    opacity: 0.85;
+  }
+
+  .week.past .week-num {
+    color: var(--ink-dim);
+  }
+
+  /* PAST SECTION */
+  .past-section {
+    margin-top: 48px;
+    border-top: 1px solid var(--line);
+    padding-top: 32px;
+  }
+
+  .past-toggle {
+    width: 100%;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--ink-dim);
+    padding: 18px 24px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    transition: all 0.3s;
+  }
+
+  .past-toggle:hover {
+    border-color: var(--ink-dim);
+    color: var(--ink);
+  }
+
+  .past-toggle-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .past-icon {
+    display: flex;
+    align-items: center;
+    transition: transform 0.3s;
+  }
+
+  .past-toggle.open .past-icon {
+    transform: rotate(180deg);
+  }
+
+  .past-label {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.1em;
+    color: var(--ink);
+  }
+
+  .past-count {
+    color: var(--ink-dim);
+    font-size: 10px;
+  }
+
+  .past-wrapper {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+  }
+
+  .past-wrapper.open {
+    max-height: 30000px;
+  }
+
+  .past-weeks {
+    margin-top: 16px;
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 980px) {
+    .stats-row { grid-template-columns: repeat(2, 1fr); }
+    .phases { grid-template-columns: 1fr 1fr; }
+    .phase:nth-child(2) { border-right: none; }
+    .phase:nth-child(1), .phase:nth-child(2) { border-bottom: 1px solid var(--line); }
+    .principles { grid-template-columns: 1fr; }
+    .rhythms { grid-template-columns: repeat(2, 1fr); }
+    .week-content { grid-template-columns: repeat(2, 1fr); }
+    .week-header { grid-template-columns: 60px 1fr auto; }
+    .week-toggle { display: none; }
+    .section-header { grid-template-columns: 1fr; gap: 12px; }
+  }
+
+  @media (max-width: 600px) {
+    .container { padding: 0 20px; }
+    .stats-row { grid-template-columns: 1fr 1fr; }
+    .phases { grid-template-columns: 1fr; }
+    .phase { border-right: none; border-bottom: 1px solid var(--line); }
+    .phase:last-child { border-bottom: none; }
+    .rhythms { grid-template-columns: 1fr; }
+    .week-content { grid-template-columns: 1fr; }
+    .day { min-height: auto; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <header class="hero">
+    <div class="top-bar">
+      <div><span class="dot"></span>PLAN ACTIVO · ANTONIO</div>
+      <div>V.1 · ABR 2026</div>
+    </div>
+
+    <div class="hero-main">
+      <div class="hero-label">Misión 25 · Octubre · 2026</div>
+      <h1 class="hero-title">SUB <span class="accent">40'</span></h1>
+      <p class="hero-subtitle">26 semanas para volver a tu mejor versión y romper la barrera de los 40 minutos en el 10K de tu pueblo.</p>
+
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-label">PR Actual 10K</div>
+          <div class="stat-value">41:50</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Objetivo</div>
+          <div class="stat-value" style="color: var(--accent);">39:5<span class="small">9</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Margen</div>
+          <div class="stat-value">−1:51 <span class="small">min</span></div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Días</div>
+          <div class="stat-value" id="daysLeft">— <span class="small">restantes</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+
+<div class="countdown-strip">
+  <div class="marquee">
+    <span>25 OCTUBRE 2026</span><span>10K · TU PUEBLO</span><span>3:59 MIN/KM</span><span>SUB 40 MINUTOS</span><span>4 ENTRENOS / SEMANA</span><span>26 SEMANAS</span><span>25 OCTUBRE 2026</span><span>10K · TU PUEBLO</span><span>3:59 MIN/KM</span><span>SUB 40 MINUTOS</span><span>4 ENTRENOS / SEMANA</span><span>26 SEMANAS</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- SEMANAS -->
+  <section id="semanas">
+    <div class="section-header">
+      <div class="section-num">01 / WK</div>
+      <h2 class="section-title">Semana a <em>semana</em></h2>
+      <div class="section-meta">Click para expandir</div>
+    </div>
+
+    <div class="legend">
+      <div class="legend-item"><span class="legend-dot" style="background: var(--easy);"></span>Rodaje suave</div>
+      <div class="legend-item"><span class="legend-dot" style="background: var(--quality);"></span>Calidad / Series</div>
+      <div class="legend-item"><span class="legend-dot" style="background: var(--long);"></span>Tirada larga</div>
+      <div class="legend-item"><span class="legend-dot" style="background: var(--strength);"></span>Fuerza / Gym</div>
+      <div class="legend-item"><span class="legend-dot" style="background: var(--rest);"></span>Descanso</div>
+    </div>
+
+    <div class="week-grid" id="weekGrid"></div>
+
+    <!-- ANTERIORES -->
+    <div id="pastSection" class="past-section" style="display: none;">
+      <button id="togglePastBtn" class="past-toggle" onclick="togglePastSection()">
+        <span class="past-toggle-left">
+          <span class="past-icon">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </span>
+          <span class="past-label">Anteriores</span>
+        </span>
+        <span class="past-count"><span id="pastCount">0</span> semanas completadas</span>
+      </button>
+      <div id="pastWrapper" class="past-wrapper">
+        <div id="pastWeeksContainer" class="week-grid past-weeks"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RITMOS DE REFERENCIA -->
+  <section id="ritmos">
+    <div class="section-header">
+      <div class="section-num">02 / RTM</div>
+      <h2 class="section-title">Tus <em>ritmos</em></h2>
+      <div class="section-meta">Referencia para sub40</div>
+    </div>
+
+    <div class="rhythms">
+      <div class="rhythm-card">
+        <div class="rhythm-name">Rodaje Suave</div>
+        <div class="rhythm-pace">5:30<span class="unit"> /km</span></div>
+        <div class="rhythm-desc">Ritmo de conversación. Si no puedes hablar, vas rápido.</div>
+      </div>
+      <div class="rhythm-card">
+        <div class="rhythm-name">Tirada larga</div>
+        <div class="rhythm-pace">5:10<span class="unit"> /km</span></div>
+        <div class="rhythm-desc">Cómoda pero firme. Construye resistencia.</div>
+      </div>
+      <div class="rhythm-card">
+        <div class="rhythm-name">Tempo / Umbral</div>
+        <div class="rhythm-pace">4:25<span class="unit"> /km</span></div>
+        <div class="rhythm-desc">Cómodamente duro. Aguantarías 1h en carrera.</div>
+      </div>
+      <div class="rhythm-card">
+        <div class="rhythm-name">Ritmo 10K</div>
+        <div class="rhythm-pace" style="color: var(--accent);">3:59<span class="unit"> /km</span></div>
+        <div class="rhythm-desc">El ritmo del objetivo. Tu mantra.</div>
+      </div>
+      <div class="rhythm-card">
+        <div class="rhythm-name">VO2 / Series</div>
+        <div class="rhythm-pace">3:45<span class="unit"> /km</span></div>
+        <div class="rhythm-desc">Ritmo de 3K. Para series cortas (400-1000m).</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FASES -->
+  <section id="fases">
+    <div class="section-header">
+      <div class="section-num">03 / EST</div>
+      <h2 class="section-title">Las cuatro <em>fases</em></h2>
+      <div class="section-meta">26 semanas · 4 bloques</div>
+    </div>
+
+    <div class="phases">
+      <div class="phase">
+        <div class="phase-num">FASE 01</div>
+        <div class="phase-name">Reset</div>
+        <div class="phase-dates">Mayo · 4 sem</div>
+        <p class="phase-desc">Recuperar de la media maratón sin prisa. Volver al hábito. Entrar al gym progresivamente. Cero ritmos exigidos.</p>
+        <div class="phase-focus">Foco: Hábito · Movilidad · Base</div>
+      </div>
+      <div class="phase">
+        <div class="phase-num">FASE 02</div>
+        <div class="phase-name">Construcción</div>
+        <div class="phase-dates">Jun—Jul · 8 sem</div>
+        <p class="phase-desc">Volumen aeróbico cómodo, primeras series suaves, fuerza progresiva. Test de 5K en junio para calibrar el plan.</p>
+        <div class="phase-focus">Foco: Volumen · Motor · Fuerza</div>
+      </div>
+      <div class="phase">
+        <div class="phase-num">FASE 03</div>
+        <div class="phase-name">Específico</div>
+        <div class="phase-dates">Ago—Sep · 9 sem</div>
+        <p class="phase-desc">Series a ritmo objetivo (3:59), tempos largos, simulacros. Aquí se construye el sub40. Mantenimiento de fuerza.</p>
+        <div class="phase-focus">Foco: Ritmo objetivo · Tempo</div>
+      </div>
+      <div class="phase">
+        <div class="phase-num">FASE 04</div>
+        <div class="phase-name">Afinamiento</div>
+        <div class="phase-dates">Oct · 4 sem</div>
+        <p class="phase-desc">Bajada de volumen, calidad afilada y corta, descanso. Llegar fresco y con chispa al 25/oct. Tapering real.</p>
+        <div class="phase-focus">Foco: Frescura · Velocidad</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRINCIPIOS -->
+  <section id="principios">
+    <div class="section-header">
+      <div class="section-num">04 / KEY</div>
+      <h2 class="section-title">Reglas <em>no negociables</em></h2>
+      <div class="section-meta">Lee antes de empezar</div>
+    </div>
+
+    <div class="principles">
+      <div class="principle" data-num="01">
+        <h3>SUAVE ES SUAVE</h3>
+        <p>El error nº1: correr los rodajes demasiado rápido. <strong>5:30/km significa 5:30/km.</strong> Si vas a 5:00 te crees que entrenas mejor, pero llegas cansado a las series de calidad y rompes el plan. Disciplina aquí.</p>
+      </div>
+      <div class="principle" data-num="02">
+        <h3>LA REGLA DE LOS 20'</h3>
+        <p>Los días que no tienes ganas (los habrá), no negocies todo el entreno. <strong>Solo zapatillas y 20 minutos.</strong> Si a los 20' quieres volver, vuelves. El 90% de las veces sigues. Anti-fricción mental.</p>
+      </div>
+      <div class="principle" data-num="03">
+        <h3>FUERZA = VELOCIDAD</h3>
+        <p>Sin fuerza, sub40 es muy difícil. <strong>2 días de gym, sin excusas.</strong> Sentadilla, peso muerto, zancadas, core. Empezar con poco peso y técnica buena. Es la diferencia entre estancarte en 41 y bajar de 40.</p>
+      </div>
+      <div class="principle" data-num="04">
+        <h3>EL PESO NO ES EL OBJETIVO</h3>
+        <p>Si bajas 2-3 kg de forma natural durante el plan, bien. Si no, también. <strong>Hay corredores de 80 kg corriendo sub40.</strong> No restrinjas comida durante bloques de carga. Comer mal = entrenar mal = no progresar.</p>
+      </div>
+      <div class="principle" data-num="05">
+        <h3>TEST EN JUNIO</h3>
+        <p>Al final de la semana 8 hay un <strong>test de 5K a tope</strong>. Ese dato manda. Si vas mejor de lo previsto, ajustamos ritmos hacia abajo. Si peor, no pasa nada, recalibramos. El plan es vivo.</p>
+      </div>
+      <div class="principle" data-num="06">
+        <h3>UNA CARRERA INTERMEDIA</h3>
+        <p>Apúntate a un 5K o 10K en julio o septiembre. <strong>Compites mucho mejor que entrenas.</strong> Una carrera intermedia te da chispa, datos reales y rompe la monotonía del plan largo.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="quote">No te falta motor. Te fallaba el sistema. Ahora tienes uno.</p>
+    <div class="meta">PLAN PERSONAL · 26 SEMANAS · DESTINO 25.10.2026</div>
+  </footer>
+
+</div>
+
+<script>
+  // Datos de las semanas. Cada semana tiene 7 días (M-D arrancando en lunes para coherencia visual)
+  // Estructura: type (easy/quality/long/strength/rest), title, desc
+  const T = {
+    R: { type: 'rest', title: 'Descanso', desc: 'Día libre. Caminar, estirar, vida.' },
+    GYM_INI: { type: 'strength', title: 'Gym base', desc: 'Sentadilla, peso muerto rumano, press banca, remo, plancha. 3x10. Pesos cómodos. Técnica.' },
+    GYM_GEN: { type: 'strength', title: 'Gym general', desc: 'Sentadilla 4x8, PM rumano 3x8, zancadas 3x10, press hombro 3x10, core 10min.' },
+    GYM_FUERZA: { type: 'strength', title: 'Fuerza máxima', desc: 'Sentadilla 4x5 fuerte, PM 3x5, hip thrust 3x8, dominadas 3x6, core.' },
+    GYM_MANT: { type: 'strength', title: 'Mantenimiento', desc: 'Sentadilla 3x6, PM 3x6, core. Sesión corta (35-40 min). No buscar fatiga.' },
+    GYM_LIG: { type: 'strength', title: 'Gym ligero', desc: 'Movilidad + core + ejercicios de cadera. 30 min máx. Despertar el cuerpo.' },
+  };
+
+  // Fecha de inicio del plan: lunes 27 de abril 2026
+  const PLAN_START = new Date(2026, 3, 27); // mes 3 = abril (0-indexed)
+
+  function getWeekDates(weekNum) {
+    const start = new Date(PLAN_START);
+    start.setDate(start.getDate() + (weekNum - 1) * 7);
+    const end = new Date(start);
+    end.setDate(end.getDate() + 6);
+    return { start, end };
+  }
+
+  const monthsShort = ['ene', 'feb', 'mar', 'abr', 'may', 'jun', 'jul', 'ago', 'sep', 'oct', 'nov', 'dic'];
+
+  function formatWeekRange(weekNum) {
+    const { start, end } = getWeekDates(weekNum);
+    const sM = monthsShort[start.getMonth()];
+    const eM = monthsShort[end.getMonth()];
+    if (start.getMonth() === end.getMonth()) {
+      return `${start.getDate()} — ${end.getDate()} ${eM}`;
+    }
+    return `${start.getDate()} ${sM} — ${end.getDate()} ${eM}`;
+  }
+
+  // Calcula el número de semana actual en base a la fecha de hoy
+  function getCurrentWeekNum() {
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const start = new Date(PLAN_START);
+    const diffDays = Math.floor((today - start) / (1000 * 60 * 60 * 24));
+    if (diffDays < 0) return 0; // Plan aún no ha empezado
+    const week = Math.floor(diffDays / 7) + 1;
+    return Math.min(week, 26);
+  }
+
+  const weeks = [
+    // === FASE 1 — RESET ===
+    {
+      num: 1, phase: 'Reset', title: 'Recuperación activa', volume: 18,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Trote suave', desc: '30 min muy suave. 5:45-6:00/km. Caminar si hace falta.', meta: '~5 km · 5:50/km' },
+        { ...T.R },
+        { type: 'easy', title: 'Trote suave', desc: '35 min. Que las piernas vuelvan a soltarse.', meta: '~6 km · 5:45/km' },
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje cómodo', desc: '40 min charlando con el cuerpo. Sin reloj.', meta: '~7 km · 5:40/km' },
+        { ...T.R },
+      ]
+    },
+    {
+      num: 2, phase: 'Reset', title: 'Volver al ritmo', volume: 25,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '40 min suaves. 5:30/km como referencia.', meta: '~7 km · 5:30/km' },
+        { ...T.GYM_INI },
+        { type: 'easy', title: 'Rodaje', desc: '45 min suaves. Acabar con 4-5 progresiones de 80m.', meta: '~8 km' },
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '30 min muy suave si toca gym, sino 50 min.', meta: '~5-9 km' },
+        { type: 'long', title: 'Tirada corta', desc: '50 min continuos a 5:30/km. Volver a la sensación de tirada.', meta: '~9 km' },
+      ]
+    },
+    {
+      num: 3, phase: 'Reset', title: 'Construir hábito', volume: 30,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje + técnica', desc: '45 min suave + 4x100m a buen ritmo (no sprints).', meta: '~8 km · 5:30/km' },
+        { ...T.GYM_INI },
+        { type: 'easy', title: 'Rodaje', desc: '50 min cómodos.', meta: '~9 km · 5:30/km' },
+        { ...T.GYM_INI },
+        { ...T.R },
+        { type: 'long', title: 'Tirada larga', desc: '60 min a 5:20-5:30/km. Última parte un pelín más vivo.', meta: '~11 km' },
+      ]
+    },
+    {
+      num: 4, phase: 'Reset', title: 'Despertar el motor', volume: 32,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '45 min + 6x100m progresiones al final.', meta: '~8 km' },
+        { ...T.GYM_GEN },
+        { type: 'quality', title: 'Fartlek suave', desc: '15 min suave + 8x(1 min vivo / 1 min suave) + 15 min suave. Sin marca, por sensaciones.', meta: '~9 km' },
+        { ...T.R },
+        { ...T.GYM_GEN },
+        { type: 'long', title: 'Tirada larga', desc: '65 min a 5:20/km. Última parte (10 min) a 5:00/km.', meta: '~12 km' },
+      ]
+    },
+
+    // === FASE 2 — CONSTRUCCIÓN (Junio-Julio) ===
+    {
+      num: 5, phase: 'Construcción', title: 'Arranca la calidad', volume: 35,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje suave', desc: '50 min + 4 progresiones de 100m al final.', meta: '~9 km' },
+        { ...T.GYM_GEN },
+        { type: 'quality', title: 'Series 1000', desc: '15 min suave + 5x1000m a 4:15/km, R: 2 min trote + 10 min suave.', meta: '~11 km' },
+        { ...T.R },
+        { ...T.GYM_GEN },
+        { type: 'long', title: 'Tirada larga', desc: '70 min a 5:20/km.', meta: '~13 km' },
+      ]
+    },
+    {
+      num: 6, phase: 'Construcción', title: 'Más volumen', volume: 38,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '50 min + 6x100m al final.', meta: '~9 km' },
+        { ...T.GYM_GEN },
+        { type: 'quality', title: 'Tempo corto', desc: '15 min suave + 20 min a tempo 4:25/km + 10 min suave.', meta: '~10 km' },
+        { ...T.R },
+        { ...T.GYM_GEN },
+        { type: 'long', title: 'Tirada larga', desc: '75 min a 5:15-5:20/km.', meta: '~14 km' },
+      ]
+    },
+    {
+      num: 7, phase: 'Construcción', title: 'Semana de descarga', volume: 28,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '40 min suaves.', meta: '~7 km' },
+        { ...T.GYM_LIG },
+        { type: 'quality', title: 'Series cortas', desc: '15 min suave + 8x400m a 3:45/km, R: 90s trote + 10 min suave.', meta: '~9 km' },
+        { ...T.R },
+        { ...T.R },
+        { type: 'long', title: 'Tirada media', desc: '55 min a 5:20/km.', meta: '~10 km' },
+      ]
+    },
+    {
+      num: 8, phase: 'Construcción', title: 'TEST 5K', volume: 30,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje muy suave', desc: '30 min muy fácil.', meta: '~5 km' },
+        { ...T.GYM_LIG },
+        { type: 'easy', title: 'Activación', desc: '30 min suave + 4x100m progresivos. Llegar fresco al sábado.', meta: '~6 km' },
+        { ...T.R },
+        { type: 'quality', title: 'TEST 5K', desc: '⚡ 15 min calentamiento + 5K a tope (cronometrado) + 10 min suave. Da el dato real de por dónde andas.', meta: 'OBJETIVO ≤19:30' },
+        { type: 'easy', title: 'Trote regenerativo', desc: '40 min muy suave.', meta: '~7 km' },
+      ]
+    },
+    {
+      num: 9, phase: 'Construcción', title: 'Recalibrar y subir', volume: 38,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '50 min + 6x100m.', meta: '~9 km' },
+        { ...T.GYM_FUERZA },
+        { type: 'quality', title: 'Series 1000', desc: '15 min suave + 6x1000m a ritmo 10K (4:00/km), R: 2 min trote + 10 min suave.', meta: '~12 km' },
+        { ...T.R },
+        { ...T.GYM_FUERZA },
+        { type: 'long', title: 'Tirada larga', desc: '80 min a 5:15/km.', meta: '~15 km' },
+      ]
+    },
+    {
+      num: 10, phase: 'Construcción', title: 'Volumen alto', volume: 40,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '55 min + 6x100m.', meta: '~10 km' },
+        { ...T.GYM_FUERZA },
+        { type: 'quality', title: 'Tempo medio', desc: '15 min suave + 25 min a 4:25/km + 10 min suave.', meta: '~12 km' },
+        { ...T.R },
+        { ...T.GYM_FUERZA },
+        { type: 'long', title: 'Tirada larga', desc: '85 min a 5:15/km. Últimos 15 min a 4:50/km.', meta: '~16 km' },
+      ]
+    },
+    {
+      num: 11, phase: 'Construcción', title: 'Velocidad pura', volume: 38,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '50 min + 6x100m fuertes.', meta: '~9 km' },
+        { ...T.GYM_FUERZA },
+        { type: 'quality', title: 'Series 400-800', desc: '15 min suave + 4x400m a 3:40/km (R:90s) + 4x800m a 3:50/km (R:2min) + 10 min suave.', meta: '~12 km' },
+        { ...T.R },
+        { ...T.GYM_FUERZA },
+        { type: 'long', title: 'Tirada larga', desc: '90 min a 5:10-5:15/km.', meta: '~17 km' },
+      ]
+    },
+    {
+      num: 12, phase: 'Construcción', title: 'Descarga', volume: 28,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '40 min suaves.', meta: '~7 km' },
+        { ...T.GYM_LIG },
+        { type: 'quality', title: 'Fartlek', desc: '15 min + 6x(2 min vivo / 2 min suave) + 10 min.', meta: '~10 km' },
+        { ...T.R },
+        { ...T.R },
+        { type: 'long', title: 'Tirada media', desc: '60 min a 5:20/km.', meta: '~11 km' },
+      ]
+    },
+
+    // === FASE 3 — ESPECÍFICO (Agosto-Septiembre) ===
+    {
+      num: 13, phase: 'Específico', title: 'Ritmo objetivo', volume: 40,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '50 min + 6x100m.', meta: '~9 km' },
+        { ...T.GYM_FUERZA },
+        { type: 'quality', title: 'Series ritmo 10K', desc: '15 min suave + 5x1000m a 3:55/km (R:90s) + 10 min suave. Aquí ya tocamos el sub40.', meta: '~12 km' },
+        { ...T.R },
+        { ...T.GYM_MANT },
+        { type: 'long', title: 'Tirada larga', desc: '85 min a 5:10/km. Últimos 20 min a 4:30/km.', meta: '~16 km' },
+      ]
+    },
+    {
+      num: 14, phase: 'Específico', title: 'Tempo largo', volume: 42,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '55 min + 6x100m.', meta: '~10 km' },
+        { ...T.GYM_FUERZA },
+        { type: 'quality', title: 'Tempo largo', desc: '15 min + 2x15 min a 4:25/km (R: 3 min trote) + 10 min suave.', meta: '~13 km' },
+        { ...T.R },
+        { ...T.GYM_MANT },
+        { type: 'long', title: 'Tirada larga', desc: '90 min a 5:10/km.', meta: '~17 km' },
+      ]
+    },
+    {
+      num: 15, phase: 'Específico', title: 'Series largas', volume: 42,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '55 min + 6x100m.', meta: '~10 km' },
+        { ...T.GYM_FUERZA },
+        { type: 'quality', title: 'Series 1500', desc: '15 min + 4x1500m a 3:55-4:00/km (R: 2:30 trote) + 10 min suave.', meta: '~13 km' },
+        { ...T.R },
+        { ...T.GYM_MANT },
+        { type: 'long', title: 'Tirada larga', desc: '90 min con últimos 25 min a 4:30/km.', meta: '~17 km' },
+      ]
+    },
+    {
+      num: 16, phase: 'Específico', title: 'Descarga', volume: 30,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '40 min.', meta: '~7 km' },
+        { ...T.GYM_LIG },
+        { type: 'quality', title: 'Series cortas vivas', desc: '15 min + 6x600m a 3:45/km (R: 90s) + 10 min.', meta: '~10 km' },
+        { ...T.R },
+        { ...T.R },
+        { type: 'long', title: 'Tirada media', desc: '65 min a 5:15/km.', meta: '~12 km' },
+      ]
+    },
+    {
+      num: 17, phase: 'Específico', title: 'Específico fuerte', volume: 44,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '55 min + 6x100m.', meta: '~10 km' },
+        { ...T.GYM_FUERZA },
+        { type: 'quality', title: '6x1000 a ritmo', desc: '15 min + 6x1000m a 3:55/km (R: 90s trote) + 10 min suave.', meta: '~13 km' },
+        { ...T.R },
+        { ...T.GYM_MANT },
+        { type: 'long', title: 'Tirada larga', desc: '95 min a 5:05/km. Últimos 15 min a 4:25/km.', meta: '~18 km' },
+      ]
+    },
+    {
+      num: 18, phase: 'Específico', title: 'Doble calidad', volume: 44,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '50 min + 6x100m.', meta: '~9 km' },
+        { type: 'quality', title: 'Tempo progresivo', desc: '15 min + 25 min empezando a 4:30 y bajando a 4:15 + 10 min suave.', meta: '~12 km' },
+        { ...T.GYM_MANT },
+        { ...T.R },
+        { type: 'quality', title: 'Series mixtas', desc: '15 min + 3x1000m (3:55) + 4x400m (3:40) + 10 min suave.', meta: '~13 km' },
+        { type: 'long', title: 'Tirada larga', desc: '90 min a 5:10/km.', meta: '~17 km' },
+      ]
+    },
+    {
+      num: 19, phase: 'Específico', title: 'Carrera de control', volume: 38,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '50 min suave.', meta: '~9 km' },
+        { ...T.GYM_LIG },
+        { type: 'easy', title: 'Activación', desc: '30 min + 4x100m. Llegar fresco al sábado.', meta: '~6 km' },
+        { ...T.R },
+        { type: 'quality', title: 'Carrera 5K o 10K', desc: '⚡ Carrera popular si la encuentras. Si no, simulacro: 8K a ritmo objetivo (4:00/km).', meta: 'TEST CLAVE' },
+        { type: 'easy', title: 'Trote regenerativo', desc: '50 min muy suave.', meta: '~9 km' },
+      ]
+    },
+    {
+      num: 20, phase: 'Específico', title: 'Pico de carga', volume: 46,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '55 min + 6x100m.', meta: '~10 km' },
+        { ...T.GYM_FUERZA },
+        { type: 'quality', title: 'Bloque sub40', desc: '15 min + 8x800m a 3:10 (=ritmo sub40 por 800) (R: 90s) + 10 min suave.', meta: '~13 km' },
+        { ...T.R },
+        { ...T.GYM_MANT },
+        { type: 'long', title: 'Tirada larga', desc: '95 min a 5:05/km. Últimos 20 min a 4:20/km.', meta: '~18 km' },
+      ]
+    },
+    {
+      num: 21, phase: 'Específico', title: 'Última carga fuerte', volume: 44,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '55 min + 6x100m.', meta: '~10 km' },
+        { ...T.GYM_FUERZA },
+        { type: 'quality', title: 'Tempo doble', desc: '15 min + 3x10 min a 4:20/km (R: 2 min trote) + 10 min suave.', meta: '~13 km' },
+        { ...T.R },
+        { ...T.GYM_MANT },
+        { type: 'long', title: 'Tirada simulada', desc: '90 min con bloque central de 8 km a 4:05/km.', meta: '~17 km' },
+      ]
+    },
+
+    // === FASE 4 — AFINAMIENTO (Octubre) ===
+    {
+      num: 22, phase: 'Afinamiento', title: 'Empieza el tapering', volume: 36,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '45 min + 6x100m.', meta: '~8 km' },
+        { ...T.GYM_MANT },
+        { type: 'quality', title: 'Series ritmo objetivo', desc: '15 min + 5x1000m a 3:55/km (R: 90s) + 10 min suave.', meta: '~12 km' },
+        { ...T.R },
+        { ...T.R },
+        { type: 'long', title: 'Tirada media', desc: '70 min a 5:10/km.', meta: '~13 km' },
+      ]
+    },
+    {
+      num: 23, phase: 'Afinamiento', title: 'Calidad afilada', volume: 32,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '40 min + 6x100m.', meta: '~7 km' },
+        { ...T.GYM_MANT },
+        { type: 'quality', title: 'Pre-objetivo', desc: '15 min + 4x1000m a 3:55/km (R: 90s) + 10 min suave.', meta: '~10 km' },
+        { ...T.R },
+        { ...T.R },
+        { type: 'long', title: 'Tirada corta', desc: '60 min a 5:10/km.', meta: '~11 km' },
+      ]
+    },
+    {
+      num: 24, phase: 'Afinamiento', title: 'Bajada real', volume: 28,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje', desc: '35 min + 4x100m.', meta: '~6 km' },
+        { ...T.GYM_LIG },
+        { type: 'quality', title: 'Series cortas', desc: '15 min + 6x600m a 3:50/km (R: 90s) + 10 min suave.', meta: '~10 km' },
+        { ...T.R },
+        { ...T.R },
+        { type: 'long', title: 'Tirada corta', desc: '50 min a 5:15/km.', meta: '~9 km' },
+      ]
+    },
+    {
+      num: 25, phase: 'Afinamiento', title: 'Semana de carrera', volume: 22,
+      days: [
+        { ...T.R },
+        { type: 'easy', title: 'Rodaje cómodo', desc: '30 min + 4x100m.', meta: '~6 km' },
+        { ...T.R },
+        { type: 'quality', title: 'Activación', desc: '15 min + 3x800m a 3:55/km (R: 2 min) + 10 min suave.', meta: '~8 km' },
+        { ...T.R },
+        { type: 'easy', title: 'Pre-test', desc: '25 min + 5x100m progresivos.', meta: '~5 km' },
+        { ...T.R },
+      ]
+    },
+    {
+      num: 26, phase: 'Afinamiento', title: '🏁 SEMANA DE CARRERA', volume: 18,
+      days: [
+        { type: 'easy', title: 'Rodaje activación', desc: '25 min muy suave + 4x100m.', meta: '~5 km' },
+        { ...T.R },
+        { type: 'easy', title: 'Pre-carrera', desc: '20 min suave + 3x80m progresivos. Sin fatiga.', meta: '~4 km' },
+        { ...T.R },
+        { ...T.R },
+        { type: 'easy', title: 'Activación corta', desc: '15 min muy suave + 3x80m. Solo despertar piernas.', meta: '~3 km' },
+        { type: 'quality', title: '🏆 10K · SUB 40', desc: '⚡ EL DÍA. Cal: 15 min trote + movilidad + 4x80m progresivos. Carrera: 4:00/km los 5 primeros, 3:55/km los 5 últimos. A por ello.', meta: 'OBJETIVO 39:59' },
+      ]
+    },
+  ];
+
+  const dayNames = ['LUN', 'MAR', 'MIÉ', 'JUE', 'VIE', 'SÁB', 'DOM'];
+
+  function buildWeekHtml(w, opts = {}) {
+    const { isCurrent = false, isPast = false, openByDefault = false } = opts;
+    const daysHtml = w.days.map((d, i) => `
+      <div class="day ${d.type}">
+        <div class="day-name">${dayNames[i]}</div>
+        <div class="day-type ${d.type}">${d.title}</div>
+        <div class="day-desc">${d.desc}</div>
+        ${d.meta ? `<div class="day-meta">${d.meta}</div>` : ''}
+      </div>
+    `).join('');
+
+    const stateClass = isCurrent ? 'current' : (isPast ? 'past' : '');
+    const stateBadge = isCurrent
+      ? '<span class="week-badge current">EN CURSO</span>'
+      : (isPast ? '<span class="week-badge past">COMPLETADA</span>' : '');
+
+    return `
+      <div class="week ${openByDefault ? 'open' : ''} ${stateClass}" data-week="${w.num}">
+        <div class="week-header" onclick="toggleWeek(${w.num})">
+          <div class="week-num">
+            <span class="label">SEM</span>
+            ${String(w.num).padStart(2, '0')}
+          </div>
+          <div class="week-info">
+            <h3>${w.title} ${stateBadge}</h3>
+            <p>${w.phase} · ${formatWeekRange(w.num)}</p>
+          </div>
+          <div class="week-volume">
+            ${w.volume}<span class="unit"> km</span>
+          </div>
+          <div class="week-toggle">
+            <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+              <path d="M3 5L7 9L11 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+        </div>
+        <div class="week-body">
+          <div class="week-content">${daysHtml}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderWeeks() {
+    const currentWeekNum = getCurrentWeekNum();
+    const grid = document.getElementById('weekGrid');
+    const pastContainer = document.getElementById('pastWeeksContainer');
+    const pastSection = document.getElementById('pastSection');
+    const pastCount = document.getElementById('pastCount');
+
+    // Semanas pasadas (todas las anteriores a la actual)
+    const pastWeeks = weeks.filter(w => w.num < currentWeekNum);
+    // Semanas actuales y futuras
+    const upcomingWeeks = weeks.filter(w => w.num >= currentWeekNum);
+
+    // Render upcoming
+    grid.innerHTML = upcomingWeeks.map(w => {
+      const isCurrent = w.num === currentWeekNum;
+      return buildWeekHtml(w, { isCurrent, openByDefault: isCurrent });
+    }).join('');
+
+    // Render past
+    if (pastWeeks.length > 0) {
+      pastSection.style.display = 'block';
+      pastCount.textContent = pastWeeks.length;
+      pastContainer.innerHTML = pastWeeks.map(w =>
+        buildWeekHtml(w, { isPast: true })
+      ).join('');
+    } else {
+      pastSection.style.display = 'none';
+    }
+  }
+
+  function toggleWeek(num) {
+    const el = document.querySelector(`[data-week="${num}"]`);
+    el.classList.toggle('open');
+  }
+
+  function togglePastSection() {
+    const wrapper = document.getElementById('pastWrapper');
+    const btn = document.getElementById('togglePastBtn');
+    wrapper.classList.toggle('open');
+    btn.classList.toggle('open');
+  }
+
+  renderWeeks();
+
+  // Calcular días restantes hasta el 25 octubre 2026
+  function updateDaysLeft() {
+    const target = new Date(2026, 9, 25); // 25 oct
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+    const diff = Math.ceil((target - today) / (1000 * 60 * 60 * 24));
+    const el = document.getElementById('daysLeft');
+    if (diff > 0) {
+      el.innerHTML = `${diff} <span class="small">restantes</span>`;
+    } else if (diff === 0) {
+      el.innerHTML = `HOY <span class="small">¡a por ello!</span>`;
+    } else {
+      el.innerHTML = `— <span class="small">terminado</span>`;
+    }
+  }
+  updateDaysLeft();
+</script>
+
+</body>
+</html>
